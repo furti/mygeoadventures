@@ -1,9 +1,12 @@
+
+
+
 h1,
-h3 {
+h2 {
   text-align: center;
 }
 
-.material-icons {
+.build-icon {
   font-size: 96px;
   transform-origin: 30px 30px;
   animation-name: work;
