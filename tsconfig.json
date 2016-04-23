@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "outDir": "./target/",
+    "target": "es5",
+    "module": "commonjs",
+    "rootDir": "./src/script"
+  },
+  "compileOnSave": false,
+  "exclude": [
+    "node_modules",
+    "typings"
+  ]
+}

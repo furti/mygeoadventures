@@ -4,39 +4,13 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="./target/styles/angular-material.min.css">
-  <link rel="stylesheet" href="./target/styles/material-icons.css">
+  <title>My Geo Adventures</title>
 
-  <style>
-    h1,
-    h3 {
-      text-align: center;
-    }
-
-    .material-icons {
-      font-size: 96px;
-      transform-origin: 30px 30px;
-      animation-name: work;
-      animation-duration: 1s;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-    }
-
-    @keyframes work {
-      0% {
-        transform: rotate(-50deg);
-      }
-      50% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(-50deg);
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./target/lib.css">
+  <link rel="stylesheet" href="./target/app.css">
 </head>
 
-<body ng-app="MyGeoAdventures" ng-cloak>
+<body ng-app="GeoAdventures" ng-cloak>
   <md-toolbar>
     <div class="md-toolbar-tools">
       <h2>
@@ -51,21 +25,8 @@
     <h3 class="md-headline">Collect all code snippets you can find and come back later to see what you can do with them.</h3>
   </md-content>
 
-  <script src="./target/scripts/angular.min.js"></script>
-  <script src="./target/scripts/angular-animate.min.js"></script>
-  <script src="./target/scripts/angular-aria.min.js"></script>
-  <script src="./target/scripts/angular-messages.min.js"></script>
-  <script src="./target/scripts/angular-material.min.js"></script>
-
-  <script type="text/javascript">
-    angular.module('MyGeoAdventures', ['ngMaterial'])
-      .config(['$mdThemingProvider', function($mdThemingProvider) {
-        $mdThemingProvider.theme('default')
-          .primaryPalette('blue-grey')
-          .accentPalette('lime');
-      }]);
-  </script>
-
+  <script src="./target/lib.js"></script>
+  <script src="./target/app.js"></script>
 </body>
 
 </html>
