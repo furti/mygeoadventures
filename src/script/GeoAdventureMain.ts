@@ -1,8 +1,13 @@
-namespace geoadventure {
-    angular.module('GeoAdventures', ['ngMaterial'])
-        .config(['$mdThemingProvider', function($mdThemingProvider) {
-            $mdThemingProvider.theme('default')
-                .primaryPalette('blue-grey')
-                .accentPalette('lime');
-        }]);
+namespace geoadventures {
+    var module = angular.module('GeoAdventures', ['ngComponentRouter', 'ngMaterial', 'geoadventures.root', 'geoadventures.home', 'geoadventures.projects']);
+
+    module.config(['$mdThemingProvider', '$locationProvider', function($mdThemingProvider: angular.material.IThemingProvider, $locationProvider: angular.ILocationProvider) {
+        $mdThemingProvider.theme('default')
+            .primaryPalette('blue-grey')
+            .accentPalette('lime');
+
+        $locationProvider.html5Mode(true);
+    }]);
+
+    module.value('$routerRootComponent', 'root');
 }

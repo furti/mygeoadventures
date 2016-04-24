@@ -1,0 +1,8 @@
+home, projects-home {
+  display: flex;
+  flex-direction: column;
+}
+projects {
+  display: flex;
+  flex: 1;
+}

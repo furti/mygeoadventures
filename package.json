@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/furti/mygeoadventures#readme",
   "dependencies": {
+    "@angular/router": "^0.2.0",
     "angular": "^1.5.5",
     "angular-animate": "^1.5.5",
     "angular-aria": "^1.5.5",

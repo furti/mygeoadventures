@@ -12,6 +12,7 @@ var gulp = require('gulp'),
 
 var libSources = [
   './node_modules/angular/angular.js',
+  './node_modules/@angular/router/angular1/angular_1_router.js',
   './node_modules/angular-animate/angular-animate.js',
   './node_modules/angular-aria/angular-aria.js',
   './node_modules/angular-messages/angular-messages.js',
@@ -73,6 +74,11 @@ gulp.task('font', function() {
     .pipe(gulp.dest(tsconfig.compilerOptions.outDir));
 });
 
+gulp.task('templates', function() {
+  gulp.src('./src/templates/**.html')
+    .pipe(gulp.dest(tsconfig.compilerOptions.outDir + '/templates'));
+});
+
 gulp.task('connect', function() {
   connect.server({
     root: '.',
@@ -84,9 +90,10 @@ gulp.task('connect', function() {
   });
 });
 
-gulp.task('watch', ['ts', 'css', 'connect'], function() {
+gulp.task('watch', ['ts', 'css', 'connect', 'templates'], function() {
   gulp.watch(tsconfig.compilerOptions.rootDir + '/**.ts', ['ts']);
   gulp.watch('./src/style/**.css', ['css']);
+  gulp.watch('./src/templates/**.html', ['templates']);
 });
 
-gulp.task('build', ['libjs', 'ts', 'libcss', 'font', 'css']);
+gulp.task('build', ['libjs', 'ts', 'libcss', 'font', 'css', 'templates']);
