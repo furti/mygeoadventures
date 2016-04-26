@@ -1,5 +1,5 @@
 h1,h2{text-align:center}.build-icon{font-size:96px;transform-origin:30px 30px;animation-name:work;animation-duration:1s;animation-timing-function:linear;animation-iteration-count:infinite}@keyframes work{0%,100%{transform:rotate(-50deg)}50%{transform:rotate(0)}}
 home .banner{width:100%}home .header{position:relative}home .title{position:absolute;top:0;left:0;width:100%;height:100%;color:#FFF;text-align:center;background-image:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5))}
 home,projects-home{display:flex;flex-direction:column}projects{display:flex;flex:1}
-.brand{margin-right:.5em}.md-toolbar-tools{width:70%}
+.brand{margin-right:.5em}md-toolbar{z-index:100}.md-toolbar-tools{position:relative}@media (max-width:600px){.toolbar-menu.show-menu{transform:scaleY(1)}.toolbar-menu{display:flex;flex-direction:column;position:absolute;top:56px;left:0;width:100%;background-color:#607d8b;z-index:100;transform:scaleY(0);transform-origin:top;transition:transform .5s}}@media (min-width:960px){.md-toolbar-tools{width:70%}}
 /*# sourceMappingURL=app.css.map */

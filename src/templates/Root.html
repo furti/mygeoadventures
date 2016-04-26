@@ -5,8 +5,14 @@
       <span>My Geo Adventures</span>
     </h2>
     <span flex></span>
-    <md-button ng-link="['Home']">Home</md-button>
-    <md-button ng-link="['Projects']">Projects</md-button>
+    <md-button class="md-icon-button" hide-gt-xs ng-click="$ctrl.showMenu = !$ctrl.showMenu">
+      <md-icon>menu</md-icon>
+    </md-button>
+
+    <div class="toolbar-menu" ng-class="{'show-menu': $ctrl.showMenu}">
+      <md-button ng-link="['Home']">Home</md-button>
+      <md-button ng-link="['Projects']">Projects</md-button>
+    </div>
   </div>
 </md-toolbar>
 <ng-outlet layout="column" flex></ng-outlet>

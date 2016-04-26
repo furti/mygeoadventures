@@ -1,6 +1,32 @@
 .brand {
   margin-right: 0.5em;
 }
+md-toolbar {
+  z-index: 100;
+}
 .md-toolbar-tools {
-  width: 70%;
+  position: relative;
+}
+@media (max-width: 600px) {
+  .toolbar-menu.show-menu {
+    transform: scaleY(1);
+  }
+  .toolbar-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    background-color: rgb(96, 125, 139);
+    z-index: 100;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s;
+  }
+}
+@media (min-width: 960px) {
+  .md-toolbar-tools {
+    width: 70%;
+  }
 }
