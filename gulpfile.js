@@ -81,7 +81,8 @@ gulp.task('templates', function() {
 
 gulp.task('connect', function() {
   connect.server({
-    root: '.',
+    root: '..',
+    fallback: 'index.html',
     middleware: function() {
       return [
         require('connect-gzip').gzip()
