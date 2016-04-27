@@ -1,15 +1,17 @@
 <md-toolbar layout="column" layout-align="start center">
   <div class="md-toolbar-tools">
-    <md-icon class="brand">explore</md-icon>
-    <h2 class="md-headline">
-      <span>My Geo Adventures</span>
-    </h2>
-    <span flex></span>
-    <md-button class="md-icon-button" hide-gt-xs ng-click="$ctrl.showMenu = !$ctrl.showMenu">
-      <md-icon>menu</md-icon>
-    </md-button>
+    <div class="titlecontainer" layout="row" layout-align="space-between center" flex>
+      <md-icon class="brand">explore</md-icon>
+      <h2 class="md-headline">
+        <span>My Geo Adventures</span>
+      </h2>
+      <span flex></span>
+      <md-button class="md-icon-button" hide-gt-xs ng-click="$ctrl.showMenu = !$ctrl.showMenu">
+        <md-icon>menu</md-icon>
+      </md-button>
+    </div>
 
-    <div class="toolbar-menu" ng-class="{'show-menu': $ctrl.showMenu}">
+    <div class="toolbar-menu" ng-show="$ctrl.showMenu">
       <md-button ng-link="['Home']">Home</md-button>
       <md-button ng-link="['Projects']">Projects</md-button>
     </div>
