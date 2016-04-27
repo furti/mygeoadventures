@@ -1,5 +1,6 @@
 home .banner {
   width: 100%;
+  display: block;
 }
 home .header {
   position: relative;
