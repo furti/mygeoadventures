@@ -57,3 +57,17 @@ home .spacer .line {
     width: 20%;
   }
 }
+home .section {
+  padding-bottom: 20px;
+}
+home .section p {
+  max-width: 960px;
+  text-align: center;
+}
+home .section.alternate {
+  color: #FFFFFF;
+  background-color: #455A64;
+}
+home .section a {
+  color: #EEFF41;
+}

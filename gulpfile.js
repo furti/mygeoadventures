@@ -5,6 +5,8 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify'),
   connect = require('gulp-connect'),
   cleanCSS = require('gulp-clean-css'),
+  markdown = require('gulp-markdown'),
+  nunjucksRender = require('gulp-nunjucks-render'),
   tsconfig = require('./tsconfig.json'),
   tsProject = ts.createProject('./tsconfig.json', {
     sortOutput: true
@@ -59,7 +61,7 @@ gulp.task('libcss', function() {
 
 gulp.task('css', function() {
   return gulp.src([
-      './src/style/**.css',
+      './src/style/**/*.css',
       '!./src/style/material-icons.css'
     ])
     .pipe(sourcemaps.init())
@@ -70,13 +72,22 @@ gulp.task('css', function() {
 });
 
 gulp.task('font', function() {
-  gulp.src('./src/style/MaterialIcons-Regular.*')
+  return gulp.src('./src/style/MaterialIcons-Regular.*')
     .pipe(gulp.dest(tsconfig.compilerOptions.outDir));
 });
 
-gulp.task('templates', function() {
-  gulp.src('./src/templates/**.html')
+gulp.task('templates', ['markdown'], function() {
+  return gulp.src('./src/templates/**/*.html')
+    .pipe(nunjucksRender({
+      path: ['./target/content']
+    }))
     .pipe(gulp.dest(tsconfig.compilerOptions.outDir + '/templates'));
+});
+
+gulp.task('markdown', function() {
+  return gulp.src('./src/content/**/*.md')
+    .pipe(markdown())
+    .pipe(gulp.dest(tsconfig.compilerOptions.outDir + '/content'));
 });
 
 gulp.task('connect', function() {
@@ -93,8 +104,9 @@ gulp.task('connect', function() {
 
 gulp.task('watch', ['ts', 'css', 'connect', 'templates'], function() {
   gulp.watch(tsconfig.compilerOptions.rootDir + '/**.ts', ['ts']);
-  gulp.watch('./src/style/**.css', ['css']);
-  gulp.watch('./src/templates/**.html', ['templates']);
+  gulp.watch('./src/style/**/*.css', ['css']);
+  gulp.watch('./src/templates/**/*.html', ['templates']);
+  gulp.watch('./src/content/**/*.md', ['templates']);
 });
 
 gulp.task('build', ['libjs', 'ts', 'libcss', 'font', 'css', 'templates']);
