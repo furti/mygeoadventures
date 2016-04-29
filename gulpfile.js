@@ -12,6 +12,11 @@ var gulp = require('gulp'),
     sortOutput: true
   });
 
+var renderer = new markdown.marked.Renderer();
+renderer.link = function(href, title, text) {
+  return '<a href="' + href + '" target="_blank">' + text + '</a>';
+};
+
 var libSources = [
   './node_modules/es6-shim/es6-shim.js',
   './node_modules/angular/angular.js',
@@ -87,7 +92,9 @@ gulp.task('templates', ['markdown'], function() {
 
 gulp.task('markdown', function() {
   return gulp.src('./src/content/**/*.md')
-    .pipe(markdown())
+    .pipe(markdown({
+      renderer: renderer
+    }))
     .pipe(gulp.dest(tsconfig.compilerOptions.outDir + '/content'));
 });
 
