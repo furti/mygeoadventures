@@ -71,3 +71,6 @@ home .section.alternate {
 home .section a {
   color: #EEFF41;
 }
+.section two-face {
+  margin-top: -18px;
+}

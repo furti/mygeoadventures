@@ -1,0 +1,20 @@
+two-face {
+  display: block;
+  height: 36px;
+  width: 36px;
+  transform: scaleX(0.7);
+}
+two-face div {
+  width: 100%;
+  box-sizing: border-box;
+}
+two-face .top-face {
+  border-bottom: 18px solid #455A64;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+}
+two-face .bottom-face {
+  border-top: 18px solid #FFFFFF;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+}
