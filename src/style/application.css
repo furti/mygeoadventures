@@ -1,11 +1,9 @@
-
-
-
-h1,
-h2 {
+body {
+  font-family: Segoe UI Emoji;
+}
+h1, h2 {
   text-align: center;
 }
-
 .build-icon {
   font-size: 96px;
   transform-origin: 30px 30px;
@@ -14,7 +12,6 @@ h2 {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-
 @keyframes work {
   0% {
     transform: rotate(-50deg);

@@ -14,7 +14,15 @@ var gulp = require('gulp'),
 
 var renderer = new markdown.marked.Renderer();
 renderer.link = function(href, title, text) {
-  return '<a href="' + href + '" target="_blank">' + text + '</a>';
+  var link = '<a href="' + href + '"';
+
+  if (title !== 'self') {
+    link += 'target="_blank"';
+  }
+
+  link += '>' + text + '</a>';
+
+  return link;
 };
 
 var libSources = [
