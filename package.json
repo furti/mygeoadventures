@@ -22,7 +22,8 @@
     "angular-animate": "^1.5.5",
     "angular-aria": "^1.5.5",
     "angular-material": "^1.0.7",
-    "angular-messages": "^1.5.5"
+    "angular-messages": "^1.5.5",
+    "es6-shim": "^0.35.0"
   },
   "devDependencies": {
     "connect-gzip": "^0.1.6",

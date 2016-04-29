@@ -13,6 +13,7 @@ var gulp = require('gulp'),
   });
 
 var libSources = [
+  './node_modules/es6-shim/es6-shim.js',
   './node_modules/angular/angular.js',
   './node_modules/@angular/router/angular1/angular_1_router.js',
   './node_modules/angular-animate/angular-animate.js',
