@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "supervisor server.js",
-    "postinstall": "typings install && gulp build"
+    "postinstall": "HOME=$HOME/app-root/runtime typings install && gulp build"
   },
   "repository": {
     "type": "git",
