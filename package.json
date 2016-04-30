@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/furti/mygeoadventures#readme",
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "express-history-api-fallback": "^2.0.0"
   },
   "devDependencies": {
     "angular": "^1.5.5",
