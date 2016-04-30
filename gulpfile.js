@@ -3,7 +3,6 @@ var gulp = require('gulp'),
   concat = require('gulp-concat'),
   sourcemaps = require('gulp-sourcemaps'),
   uglify = require('gulp-uglify'),
-  connect = require('gulp-connect'),
   cleanCSS = require('gulp-clean-css'),
   markdown = require('gulp-markdown'),
   nunjucksRender = require('gulp-nunjucks-render'),
@@ -90,12 +89,18 @@ gulp.task('font', function() {
     .pipe(gulp.dest(tsconfig.compilerOptions.outDir));
 });
 
+
+gulp.task('pictures', function() {
+  return gulp.src('./src/pictures/**/*')
+    .pipe(gulp.dest(tsconfig.compilerOptions.outDir + '/pictures'));
+});
+
 gulp.task('templates', ['markdown'], function() {
-  return gulp.src('./src/templates/**/*.html')
+  return gulp.src('./src/**/*.html')
     .pipe(nunjucksRender({
       path: ['./target/content']
     }))
-    .pipe(gulp.dest(tsconfig.compilerOptions.outDir + '/templates'));
+    .pipe(gulp.dest(tsconfig.compilerOptions.outDir));
 });
 
 gulp.task('markdown', function() {
@@ -106,23 +111,11 @@ gulp.task('markdown', function() {
     .pipe(gulp.dest(tsconfig.compilerOptions.outDir + '/content'));
 });
 
-gulp.task('connect', function() {
-  connect.server({
-    root: '..',
-    fallback: 'index.html',
-    middleware: function() {
-      return [
-        require('connect-gzip').gzip()
-      ];
-    }
-  });
-});
-
-gulp.task('watch', ['ts', 'css', 'connect', 'templates'], function() {
+gulp.task('watch', ['ts', 'css', 'templates'], function() {
   gulp.watch(tsconfig.compilerOptions.rootDir + '/**.ts', ['ts']);
   gulp.watch('./src/style/**/*.css', ['css']);
-  gulp.watch('./src/templates/**/*.html', ['templates']);
+  gulp.watch('./src/**/*.html', ['templates']);
   gulp.watch('./src/content/**/*.md', ['templates']);
 });
 
-gulp.task('build', ['libjs', 'ts', 'libcss', 'font', 'css', 'templates']);
+gulp.task('build', ['libjs', 'ts', 'libcss', 'font', 'css', 'templates', 'pictures']);

@@ -2,9 +2,9 @@
   "name": "mygeoadventures",
   "version": "0.0.1",
   "description": "",
-  "main": "index.html",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "supervisor server.js"
   },
   "repository": {
     "type": "git",
@@ -23,14 +23,14 @@
     "angular-aria": "^1.5.5",
     "angular-material": "^1.0.7",
     "angular-messages": "^1.5.5",
-    "es6-shim": "^0.35.0"
+    "es6-shim": "^0.35.0",
+    "express": "^4.13.4"
   },
   "devDependencies": {
     "connect-gzip": "^0.1.6",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.6",
     "gulp-concat": "^2.6.0",
-    "gulp-connect": "^3.2.2",
     "gulp-markdown": "^1.2.0",
     "gulp-nunjucks-render": "^2.0.0",
     "gulp-sourcemaps": "^2.0.0-alpha",

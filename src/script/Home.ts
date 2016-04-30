@@ -6,6 +6,6 @@ namespace geoadventures {
     angular.module('geoadventures.home', [])
         .component('home', {
             controller: Home,
-            templateUrl: './target/templates/Home.html'
+            templateUrl: 'templates/Home.html'
         });
 }
