@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "supervisor server.js"
+    "start": "supervisor server.js",
+    "postinstall": "typings install && gulp build"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,8 @@
   "homepage": "https://github.com/furti/mygeoadventures#readme",
   "dependencies": {
     "express": "^4.13.4",
-    "express-history-api-fallback": "^2.0.0"
+    "express-history-api-fallback": "^2.0.0",
+    "typings": "^0.8.1"
   },
   "devDependencies": {
     "angular": "^1.5.5",
