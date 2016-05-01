@@ -1,0 +1,20 @@
+[{
+  "title": "Matching Tiles",
+  "name": "matchingtiles",
+  "files": [{
+    "path": "src/karte.js",
+    "geocache": {
+      "name": "Mauskopfstein und Zwickstein",
+      "latitude": "N 48° 22.990",
+      "longitude": "E 014° 45.800"
+    }
+  }, {
+    "path": "src/kartenstapel.js",
+    "part": 1,
+    "geocache": {
+      "name": "Bildstock Amhüttn",
+      "latitude": "N 48° 22.987",
+      "longitude": "E 014° 48.521"
+    }
+  }]
+}]
