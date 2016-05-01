@@ -69,8 +69,14 @@ home .section.alternate {
   background-color: #455A64;
 }
 home .section a {
+  color: #607D8B;
+}
+home .section.alternate a {
   color: #EEFF41;
 }
 .section two-face {
   margin-top: -18px;
+}
+home ol {
+  margin-top: 0;
 }
