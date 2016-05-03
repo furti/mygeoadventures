@@ -1,0 +1,18 @@
+<div layout="row" flex>
+  <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="true" md-disable-backdrop md-whiteframe="4">
+    <md-content>
+      <md-list>
+        <md-list-item ng-click="$ctrl.overview()">
+          <p>Overview</p>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-list-item ng-click="$ctrl.project(project)" ng-repeat="project in $ctrl.projects">
+          <p ng-bind="project.title"></p>
+        </md-list-item>
+      </md-list>
+    </md-content>
+  </md-sidenav>
+  <md-content flex layout-padding>
+    <ng-outlet></ng-outlet>
+  </md-content>
+</div>

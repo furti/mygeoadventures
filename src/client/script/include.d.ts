@@ -1,8 +1,8 @@
-/// <reference path="../../typings/browser.d.ts" />
+/// <reference path="../../../typings/browser.d.ts" />
 
 declare namespace angular {
     interface RoutingComponentOptions extends angular.IComponentOptions {
-        $routeConfig: angular.RouteDefinition[]
+        $routeConfig: angular.RouteDefinition[];
     }
 
     interface IModule {

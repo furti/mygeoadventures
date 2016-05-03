@@ -6,10 +6,14 @@ var gulp = require('gulp'),
   cleanCSS = require('gulp-clean-css'),
   markdown = require('gulp-markdown'),
   nunjucksRender = require('gulp-nunjucks-render'),
-  tsconfig = require('./tsconfig.json'),
-  tsProject = ts.createProject('./tsconfig.json', {
+  clientProject = ts.createProject('./src/client/tsconfig.json', {
     sortOutput: true
-  });
+  }),
+  serverProject = ts.createProject('./src/server/tsconfig.json', {
+    sortOutput: true
+  }),
+  clientTarget = './target',
+  serverTarget = './server';
 
 var renderer = new markdown.marked.Renderer();
 renderer.link = function(href, title, text) {
@@ -27,7 +31,7 @@ renderer.link = function(href, title, text) {
 var libSources = [
   './node_modules/es6-shim/es6-shim.js',
   './node_modules/angular/angular.js',
-  './src/lib/angular_1_router.js',
+  './src/client/lib/angular_1_router.js',
   './node_modules/angular-animate/angular-animate.js',
   './node_modules/angular-aria/angular-aria.js',
   './node_modules/angular-messages/angular-messages.js',
@@ -42,12 +46,12 @@ gulp.task('libjs', function() {
     .pipe(uglify())
     .pipe(concat('lib.js'))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(tsconfig.compilerOptions.outDir));
+    .pipe(gulp.dest(clientTarget));
 });
 
 gulp.task('ts', function() {
-  var tsSources = tsProject.src()
-    .pipe(ts(tsProject)).js;
+  var tsSources = clientProject.src()
+    .pipe(ts(clientProject)).js;
 
 
   return tsSources
@@ -57,65 +61,81 @@ gulp.task('ts', function() {
     .pipe(uglify())
     .pipe(concat('app.js'))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(tsconfig.compilerOptions.outDir));
+    .pipe(gulp.dest(clientTarget));
 });
 
 gulp.task('libcss', function() {
   return gulp.src([
       './node_modules/angular-material/angular-material.css',
-      './src/style/material-icons.css'
+      './src/client/style/material-icons.css'
     ])
     .pipe(sourcemaps.init())
     .pipe(cleanCSS())
     .pipe(concat('lib.css'))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(tsconfig.compilerOptions.outDir));
+    .pipe(gulp.dest(clientTarget));
 });
 
 gulp.task('css', function() {
   return gulp.src([
-      './src/style/**/*.css',
-      '!./src/style/material-icons.css'
+      './src/client/style/**/*.css',
+      '!./src/client/style/material-icons.css'
     ])
     .pipe(sourcemaps.init())
     .pipe(cleanCSS())
     .pipe(concat('app.css'))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(tsconfig.compilerOptions.outDir));
+    .pipe(gulp.dest(clientTarget));
 });
 
 gulp.task('font', function() {
-  return gulp.src('./src/style/MaterialIcons-Regular.*')
-    .pipe(gulp.dest(tsconfig.compilerOptions.outDir));
+  return gulp.src('./src/client/style/MaterialIcons-Regular.*')
+    .pipe(gulp.dest(clientTarget));
 });
 
 
 gulp.task('pictures', function() {
-  return gulp.src('./src/pictures/**/*')
-    .pipe(gulp.dest(tsconfig.compilerOptions.outDir + '/pictures'));
+  return gulp.src('./src/client/pictures/**/*')
+    .pipe(gulp.dest(clientTarget + '/pictures'));
 });
 
 gulp.task('templates', ['markdown'], function() {
-  return gulp.src('./src/**/*.html')
+  return gulp.src('./src/client/**/*.html')
     .pipe(nunjucksRender({
       path: ['./target/content']
     }))
-    .pipe(gulp.dest(tsconfig.compilerOptions.outDir));
+    .pipe(gulp.dest(clientTarget));
 });
 
 gulp.task('markdown', function() {
-  return gulp.src('./src/content/**/*.md')
+  return gulp.src('./src/client/content/**/*.md')
     .pipe(markdown({
       renderer: renderer
     }))
-    .pipe(gulp.dest(tsconfig.compilerOptions.outDir + '/content'));
+    .pipe(gulp.dest(clientTarget + '/content'));
 });
 
-gulp.task('watch', ['ts', 'css', 'templates'], function() {
-  gulp.watch(tsconfig.compilerOptions.rootDir + '/**.ts', ['ts']);
-  gulp.watch('./src/style/**/*.css', ['css']);
-  gulp.watch('./src/**/*.html', ['templates']);
-  gulp.watch('./src/content/**/*.md', ['templates']);
+gulp.task('projects', function() {
+  gulp.src('./src/client/content/**/*.json')
+    .pipe(gulp.dest(clientTarget + '/content'));
 });
 
-gulp.task('build', ['libjs', 'ts', 'libcss', 'font', 'css', 'templates', 'pictures']);
+gulp.task('server', function() {
+  var tsSources = serverProject.src()
+    .pipe(ts(serverProject)).js;
+
+
+  return tsSources
+    .pipe(gulp.dest(serverTarget));
+});
+
+gulp.task('watch', ['ts', 'css', 'templates', 'projects', 'server'], function() {
+  gulp.watch('./src/client/script/**.ts', ['ts']);
+  gulp.watch('./src/client/style/**/*.css', ['css']);
+  gulp.watch('./src/client/**/*.html', ['templates']);
+  gulp.watch('./src/client/content/**/*.md', ['templates']);
+  gulp.watch('./src/client/content/**/*.json', ['projects']);
+  gulp.watch('./src/server/**.ts', ['server']);
+});
+
+gulp.task('build', ['libjs', 'ts', 'libcss', 'font', 'css', 'templates', 'pictures', 'projects', 'server']);

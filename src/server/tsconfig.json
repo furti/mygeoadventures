@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "outDir": "../../server/",
+    "target": "es5",
+    "module": "commonjs",
+    "rootDir": "./"
+  },
+  "compileOnSave": false,
+  "exclude": []
+}
