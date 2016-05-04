@@ -9,8 +9,8 @@ namespace geoadventures {
         }
 
         public $routerOnActivate(): any {
-            return this.$http.get('data/projects').then((projects: Project[]) => {
-                this.projects = projects.data;
+            return this.$http.get<Project[]>('data/projects').then((response) => {
+                this.projects = response.data;
             });
         };
     }
