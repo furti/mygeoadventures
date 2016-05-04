@@ -1,9 +1,6 @@
 body {
   font-family: Segoe UI Emoji;
 }
-h1, h2 {
-  text-align: center;
-}
 .build-icon {
   font-size: 96px;
   transform-origin: 30px 30px;

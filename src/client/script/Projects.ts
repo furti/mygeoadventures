@@ -3,9 +3,18 @@ namespace geoadventures {
         static $inject = ['$http'];
 
         private projects: Project[];
+        private $router: angular.Router;
 
         constructor(private $http: angular.IHttpService) {
 
+        }
+
+        public overview(): void {
+            this.$router.navigate(['ProjectsOverview']);
+        }
+
+        public project(project: Project): void {
+            this.$router.navigate(['ProjectsDetails', { name: project.name }]);
         }
 
         public $routerOnActivate(): any {
@@ -19,8 +28,11 @@ namespace geoadventures {
         .component('projects', {
             controller: Projects,
             templateUrl: 'templates/Projects.html',
+            bindings: {
+                $router: '<'
+            },
             $routeConfig: [
-                { path: '/', name: 'ProjectsHome', component: 'projectsHome', useAsDefault: true },
+                { path: '/', name: 'ProjectsOverview', component: 'projectsOverview', useAsDefault: true },
                 { path: '/:name', name: 'ProjectsDetails', component: 'projectsDetails' }
             ]
         });
