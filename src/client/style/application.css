@@ -1,6 +1,26 @@
 body {
   font-family: Segoe UI Emoji;
 }
+.section {
+  padding-bottom: 20px;
+}
+.section.alternate {
+  color: #FFFFFF;
+  background-color: #455A64;
+}
+.section a {
+  color: #607D8B;
+}
+.section.alternate a {
+  color: #EEFF41;
+}
+.section two-face {
+  margin-top: -18px;
+  align-self: center;
+}
+
+/*Remove when not needed anymore */
+
 .build-icon {
   font-size: 96px;
   transform-origin: 30px 30px;
