@@ -16,5 +16,13 @@
       "latitude": "N 48° 22.987",
       "longitude": "E 014° 48.521"
     }
+  }, {
+    "path": "src/kartenstapel.js",
+    "part": 2,
+    "geocache": {
+      "name": "Hindberg",
+      "latitude": "N 48° 22.560",
+      "longitude": "E 014° 49.356"
+    }
   }]
 }]
