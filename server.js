@@ -10,6 +10,11 @@ server.get('/data/projects', function(req, resp) {
   resp.send(projectService.getProjects());
 });
 
+server.get('/data/projects/:name', function(req, resp) {
+  console.log(req.params.name);
+  resp.send(projectService.getProject(req.params.name));
+});
+
 server.use(express.static(rootFolder));
 server.use(fallback('index.html', {
   root: rootFolder
