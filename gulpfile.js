@@ -102,7 +102,17 @@ gulp.task('pictures', function() {
 gulp.task('templates', ['markdown'], function() {
   return gulp.src('./src/client/**/*.html')
     .pipe(nunjucksRender({
-      path: ['./target/content']
+      path: ['./target/content'],
+      envOptions: {
+        tags: {
+          blockStart: '{%',
+          blockEnd: '%}',
+          variableStart: '${{',
+          variableEnd: '}}',
+          commentStart: '<#',
+          commentEnd: '#>'
+        }
+      }
     }))
     .pipe(gulp.dest(clientTarget));
 });
