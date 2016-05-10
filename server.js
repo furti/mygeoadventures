@@ -11,7 +11,6 @@ server.get('/data/projects', function(req, resp) {
 });
 
 server.get('/data/projects/:name', function(req, resp) {
-  console.log(req.params.name);
   resp.send(projectService.getProject(req.params.name));
 });
 
