@@ -27,7 +27,7 @@ namespace geoadventures {
     angular.module('geoadventures.projects', [])
         .component('projects', {
             controller: Projects,
-            templateUrl: 'templates/Projects.html',
+            template: `{% include "Projects.html" %}`,
             bindings: {
                 $router: '<'
             },

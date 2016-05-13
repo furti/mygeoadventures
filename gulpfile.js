@@ -13,7 +13,17 @@ var gulp = require('gulp'),
     sortOutput: true
   }),
   clientTarget = './target',
-  serverTarget = './server';
+  serverTarget = './server',
+  nunjucksOptions = {
+    tags: {
+      blockStart: '{%',
+      blockEnd: '%}',
+      variableStart: '&{',
+      variableEnd: '}}',
+      commentStart: '<#',
+      commentEnd: '#>'
+    }
+  };
 
 var renderer = new markdown.marked.Renderer();
 renderer.link = function(href, title, text) {
@@ -49,8 +59,13 @@ gulp.task('libjs', function() {
     .pipe(gulp.dest(clientTarget));
 });
 
-gulp.task('ts', function() {
+gulp.task('ts', ['templates'], function() {
   var tsSources = clientProject.src()
+    .pipe(nunjucksRender({
+      ext: '.ts',
+      path: ['./target/templates'],
+      envOptions: nunjucksOptions
+    }))
     .pipe(ts(clientProject)).js;
 
 
@@ -103,16 +118,7 @@ gulp.task('templates', ['markdown'], function() {
   return gulp.src('./src/client/**/*.html')
     .pipe(nunjucksRender({
       path: ['./target/content'],
-      envOptions: {
-        tags: {
-          blockStart: '{%',
-          blockEnd: '%}',
-          variableStart: '${{',
-          variableEnd: '}}',
-          commentStart: '<#',
-          commentEnd: '#>'
-        }
-      }
+      envOptions: nunjucksOptions
     }))
     .pipe(gulp.dest(clientTarget));
 });

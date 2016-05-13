@@ -20,6 +20,6 @@ namespace geoadventures {
     angular.module('geoadventures.projects')
         .component('projectsDetails', {
             controller: ProjectsDetails,
-            templateUrl: 'templates/ProjectsDetails.html'
+            template:`{% include "ProjectsDetails.html" %}`
         });
 }
