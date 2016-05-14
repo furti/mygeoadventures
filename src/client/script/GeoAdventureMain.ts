@@ -4,7 +4,7 @@ namespace geoadventures {
     module.config(['$mdThemingProvider', '$locationProvider', function($mdThemingProvider: angular.material.IThemingProvider, $locationProvider: angular.ILocationProvider) {
         $mdThemingProvider.theme('default')
             .primaryPalette('blue-grey')
-            .accentPalette('lime');
+            .accentPalette('orange');
 
         $locationProvider.html5Mode(true);
     }]);
