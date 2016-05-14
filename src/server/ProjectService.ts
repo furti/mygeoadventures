@@ -4,9 +4,14 @@ class ProjectService {
     private projectOverview: SimpleProject[];
     private projects: ProjectMap;
     private projectFile = './target/content/projects.json';
+    private projectFileLastModifiedInMillis: Number;
 
     constructor() {
-        this.load();
+        this.refresh();
+
+        setInterval(() => {
+            this.refresh();
+        }, process.env.PROJECT_REFRESH_INTERVAL_IN_MILLIS || 10000);
     }
 
     public getProjects(): SimpleProject[] {
@@ -15,6 +20,19 @@ class ProjectService {
 
     public getProject(projectName: string): Project {
         return this.projects[projectName];
+    }
+
+    private refresh(): void {
+        console.log('Checking for refresh ' + new Date().toJSON());
+
+        fs.stat(this.projectFile, (err: NodeJS.ErrnoException, stats: fs.Stats) => {
+            var actualMillis = stats.mtime.getTime();
+
+            if (this.projectFileLastModifiedInMillis !== actualMillis) {
+                this.projectFileLastModifiedInMillis = actualMillis;
+                this.load();
+            }
+        });
     }
 
     private load(): void {
