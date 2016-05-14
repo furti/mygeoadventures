@@ -9,6 +9,9 @@ class ProjectService {
     constructor() {
         this.refresh();
 
+        console.log('Refresh interval ' + process.env.PROJECT_REFRESH_INTERVAL_IN_MILLIS);
+        console.log('ENV %o', process.env);
+
         setInterval(() => {
             this.refresh();
         }, process.env.PROJECT_REFRESH_INTERVAL_IN_MILLIS || 10000);
