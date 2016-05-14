@@ -1,0 +1,4 @@
+<div ng-repeat="file in ::$ctrl.files">
+    <md-icon>{{::$ctrl.icon(file)}}</md-icon>{{::file.name}}
+    <file-list ng-if="file.files" files="file.files"></file-list>
+</div>

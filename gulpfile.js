@@ -148,7 +148,7 @@ gulp.task('server', function() {
 gulp.task('watch', ['ts', 'css', 'templates', 'projects', 'server'], function() {
   gulp.watch('./src/client/script/**.ts', ['ts']);
   gulp.watch('./src/client/style/**/*.css', ['css']);
-  gulp.watch('./src/client/**/*.html', ['templates']);
+  gulp.watch('./src/client/**/*.html', ['ts']);
   gulp.watch('./src/client/content/**/*.md', ['templates']);
   gulp.watch('./src/client/content/**/*.json', ['projects']);
   gulp.watch('./src/server/**.ts', ['server']);

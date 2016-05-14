@@ -1,5 +1,5 @@
 namespace geoadventures {
-    var module = angular.module('GeoAdventures', ['ngComponentRouter', 'ngMaterial', 'geoadventures.root', 'geoadventures.home', 'geoadventures.projects', 'geoadventures.twoface']);
+    var module = angular.module('GeoAdventures', ['ngComponentRouter', 'ngMaterial', 'geoadventures.root', 'geoadventures.home', 'geoadventures.projects', 'geoadventures.twoface', 'geoadventures.files']);
 
     module.config(['$mdThemingProvider', '$locationProvider', function($mdThemingProvider: angular.material.IThemingProvider, $locationProvider: angular.ILocationProvider) {
         $mdThemingProvider.theme('default')

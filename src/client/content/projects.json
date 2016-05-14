@@ -1,28 +1,34 @@
 [{
-  "title": "Matching Tiles",
-  "name": "matchingtiles",
-  "files": [{
-    "path": "src/karte.js",
-    "geocache": {
-      "name": "Mauskopfstein und Zwickstein",
-      "latitude": "N 48° 22.990",
-      "longitude": "E 014° 45.800"
-    }
-  }, {
-    "path": "src/kartenstapel.js",
-    "part": 1,
-    "geocache": {
-      "name": "Bildstock Amhüttn",
-      "latitude": "N 48° 22.987",
-      "longitude": "E 014° 48.521"
-    }
-  }, {
-    "path": "src/kartenstapel.js",
-    "part": 2,
-    "geocache": {
-      "name": "Hindberg",
-      "latitude": "N 48° 22.560",
-      "longitude": "E 014° 49.356"
-    }
-  }]
+    "title": "Matching Tiles",
+    "name": "matchingtiles",
+    "files": [{
+        "name": "icons",
+        "type": "folder"
+    }, {
+        "name": "src",
+        "type": "folder",
+        "files": [{
+            "name": "karte.js",
+            "type": "file",
+            "geocache": {
+                "name": "Mauskopfstein und Zwickstein",
+                "latitude": "N 48° 22.990",
+                "longitude": "E 014° 45.800"
+            }
+        }, {
+            "name": "kartenstapel.js",
+            "type": "file",
+            "geocaches": [{
+                "name": "Bildstock Amhüttn",
+                "latitude": "N 48° 22.987",
+                "longitude": "E 014° 48.521",
+                "part": 1
+            }, {
+                "name": "Hindberg",
+                "latitude": "N 48° 22.560",
+                "longitude": "E 014° 49.356",
+                "part": 2
+            }]
+        }]
+    }]
 }]

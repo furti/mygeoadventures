@@ -6,8 +6,10 @@ namespace geoadventures {
     }
 
     export interface ProjectFile {
-        path: string;
-        geocache: GeoCache;
+        name: string;
+        type: string;
+        files?: ProjectFile[];
+        geocache?: GeoCache;
     }
 
     export interface GeoCache {
