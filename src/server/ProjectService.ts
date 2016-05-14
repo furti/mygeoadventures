@@ -23,8 +23,6 @@ class ProjectService {
     }
 
     private refresh(): void {
-        console.log('Checking for refresh ' + new Date().toJSON());
-
         fs.stat(this.projectFile, (err: NodeJS.ErrnoException, stats: fs.Stats) => {
             var actualMillis = stats.mtime.getTime();
 
