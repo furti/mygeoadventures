@@ -1,4 +1,7 @@
 {
+    "html": {
+      "wrap_line_length": 120
+    },
     "css": {
         "newline_between_rules": true
     }

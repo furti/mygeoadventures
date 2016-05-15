@@ -1,9 +1,17 @@
 <h1>{{ $ctrl.project.title }}</h1>
 
-<h4 class="md-title">Setup the project</h4>
-{% include "projects/details/setup.html" %}
+<h4 class="md-title">Setup the project</h4> {% include "projects/details/setup.html" %}
 
 <h4 class="md-title">The Project Structure</h4>
+
+<p>Below you can see the folders and files for this project. Not all files are shown below. Only the structure in the root folder
+    and all the files you need to find are shown.</p>
+
+<p>All the searchable files are marked with the
+    <md-icon>place</md-icon> icon. You can click on the searchables to get more informations about them.</p>
+
+<p>If a searchable is grayed out it is not hidden yet. Come back later to check where it is located.</p>
+
 <div class="project-structure">
     <code>&lt;PROJECT_HOME&gt;</code>
     <file-list files="$ctrl.project.files"></file-list>
