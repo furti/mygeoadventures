@@ -2,7 +2,12 @@ namespace geoadventures {
     class FileList {
         public icon(file: ProjectFile): string {
             if (file.type === 'file') {
-                return 'description';
+                if (file.searchable) {
+                  return 'place';
+                }
+                else {
+                    return 'description';
+                }
             }
             else if (file.type === 'folder') {
                 if (!file.files || file.files.length === 0) {

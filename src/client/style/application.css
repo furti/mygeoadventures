@@ -6,6 +6,11 @@ a {
     color: #FF9800;
 }
 
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 code {
     background-color: #cfd8dc;
     color: #FF9800;
@@ -13,17 +18,19 @@ code {
     border-radius: 4px;
 }
 
-em:before, em:after{
-  content: "\""
+em:before, em:after {
+    content: "\""
 }
 
 ol {
     list-style-type: none;
     padding-left: 2em;
 }
+
 ol li {
     counter-increment: list-numbers;
 }
+
 ol li::before {
     content: counter(list-numbers) ". ";
     display: block;

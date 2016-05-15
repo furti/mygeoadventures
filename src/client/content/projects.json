@@ -5,11 +5,18 @@
         "name": "icons",
         "type": "folder"
     }, {
+        "name": "node",
+        "type": "folder"
+    }, {
+        "name": "node_modules",
+        "type": "folder"
+    }, {
         "name": "src",
         "type": "folder",
         "files": [{
             "name": "karte.js",
             "type": "file",
+            "searchable": true,
             "geocache": {
                 "name": "Mauskopfstein und Zwickstein",
                 "latitude": "N 48° 22.990",
@@ -18,6 +25,7 @@
         }, {
             "name": "kartenstapel.js",
             "type": "file",
+            "searchable": true,
             "geocaches": [{
                 "name": "Bildstock Amhüttn",
                 "latitude": "N 48° 22.987",
@@ -29,6 +37,29 @@
                 "longitude": "E 014° 49.356",
                 "part": 2
             }]
+        }, {
+            "name": "memory.js",
+            "type": "file",
+            "searchable": true
+        }, {
+            "name": "spieler.js",
+            "type": "file",
+            "searchable": true
         }]
+    }, {
+        "name": "style",
+        "type": "folder"
+    }, {
+        "name": "templates",
+        "type": "folder"
+    }, {
+        "name": "index.html",
+        "type": "file"
+    }, {
+        "name": "LICENSE",
+        "type": "file"
+    }, {
+        "name": "package.json",
+        "type": "file"
     }]
 }]

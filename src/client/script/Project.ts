@@ -8,12 +8,14 @@ namespace geoadventures {
     export interface ProjectFile {
         name: string;
         type: string;
+        searchable?: boolean;
         files?: ProjectFile[];
-        geocache?: GeoCache;
+        geocaches?: GeoCache[];
     }
 
     export interface GeoCache {
         name: string;
+        part?: number;
         latitude: string;
         longitude: string;
     }
