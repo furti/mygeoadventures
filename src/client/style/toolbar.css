@@ -1,34 +1,42 @@
 .brand {
-  margin-right: 0.5em;
+    margin-right: 0.5em;
 }
-md-toolbar {
-  z-index: 100;
+
+.main-toolbar {
+    z-index: 100;
 }
+
 .toolbar-menu.ng-hide {
-  display: flex !important;
+    display: flex !important;
 }
+
+md-toolbar.md-accent .md-toolbar-tools {
+    color: #FFFFFF;
+}
+
 @media (max-width: 600px) {
-  .titlecontainer {
-    width: 100%;
-  }
-  .md-toolbar-tools {
-    flex-direction: column;
-    height: auto;
-    max-height: none;
-    min-height: 56px;
-  }
-  .toolbar-menu.ng-hide {
-    display: none !important;
-  }
-  .toolbar-menu {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 10px;
-  }
+    .titlecontainer {
+        width: 100%;
+    }
+    .main-toolbar .md-toolbar-tools {
+        flex-direction: column;
+        height: auto;
+        max-height: none;
+        min-height: 56px;
+    }
+    .toolbar-menu.ng-hide {
+        display: none !important;
+    }
+    .toolbar-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
+
 @media (min-width: 960px) {
-  .md-toolbar-tools {
-    width: 70%;
-  }
+    .main-toolbar .md-toolbar-tools {
+        width: 70%;
+    }
 }
