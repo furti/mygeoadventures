@@ -1,4 +1,4 @@
-<div ng-repeat="file in ::$ctrl.files">
+<div ng-repeat="file in ::$ctrl.files" ng-class="{'not-hidden-yet': !file.geocaches || file.geocaches.length === 0}">
     <md-icon>{{::$ctrl.icon(file)}}</md-icon>
     <span ng-if="::!file.searchable">{{::file.name}}</span>
     <a ng-if="::file.searchable">{{::file.name}}</a>

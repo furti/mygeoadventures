@@ -8,3 +8,7 @@ file-list {
     display: block;
     margin-left: 20px;
 }
+
+.not-hidden-yet {
+  opacity: 0.7;
+}

@@ -17,11 +17,11 @@
             "name": "karte.js",
             "type": "file",
             "searchable": true,
-            "geocache": {
+            "geocaches": [{
                 "name": "Mauskopfstein und Zwickstein",
                 "latitude": "N 48° 22.990",
                 "longitude": "E 014° 45.800"
-            }
+            }]
         }, {
             "name": "kartenstapel.js",
             "type": "file",
