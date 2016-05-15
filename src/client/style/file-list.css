@@ -1,3 +1,9 @@
+.project-structure {
+    background-color: #CFD8DC;
+    padding: 10px 20px 20px 0;
+    display: inline-block;
+}
+
 file-list {
     display: block;
     margin-left: 20px;
