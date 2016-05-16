@@ -40,7 +40,6 @@ namespace geoadventures {
   </md-toolbar>
   <md-dialog-content class="md-dialog-content">
       <file-view file="$ctrl.file"></file-view>
-      <p>Content will follow...</p>
   </md-dialog-content>
 </md-dialog>`,
                 targetEvent: $event,
