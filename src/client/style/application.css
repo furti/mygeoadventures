@@ -44,6 +44,7 @@ ol li::before {
 
 .section {
     padding-bottom: 20px;
+    flex-shrink: 0;
 }
 
 .section.alternate {
