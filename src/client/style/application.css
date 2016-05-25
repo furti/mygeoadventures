@@ -1,58 +1,67 @@
 body {
-    font-family: Segoe UI Emoji,arial,sans-serif;
+  font-family: Segoe UI Emoji, arial, sans-serif;
 }
 
 a {
-    color: #FF9800;
+  color: #FF9800;
 }
 
 a:hover {
-    text-decoration: underline;
-    cursor: pointer;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 code {
-    background-color: #cfd8dc;
-    color: #FF9800;
-    padding: 2px 5px;
-    border-radius: 4px;
+  background-color: #cfd8dc;
+  color: #FF9800;
+  padding: 2px 5px;
+  border-radius: 4px;
 }
 
 em:before, em:after {
-    content: "\""
+  content: "\""
 }
 
 ol {
-    list-style-type: none;
-    padding-left: 2em;
+  list-style-type: none;
+  padding-left: 2em;
 }
 
 ol li {
-    counter-increment: list-numbers;
+  counter-increment: list-numbers;
 }
 
 ol li::before {
-    content: counter(list-numbers) ". ";
-    display: block;
-    position: relative;
-    max-width: 0px;
-    max-height: 0px;
-    left: -2em;
-    top: .05em;
-    color: #FF9800;
+  content: counter(list-numbers) ". ";
+  display: block;
+  position: relative;
+  max-width: 0px;
+  max-height: 0px;
+  left: -2em;
+  top: .05em;
+  color: #FF9800;
 }
 
 .section {
-    padding-bottom: 20px;
-    flex-shrink: 0;
+  padding-bottom: 20px;
+  flex-shrink: 0;
 }
 
 .section.alternate {
-    color: #FFFFFF;
-    background-color: #455A64;
+  color: #FFFFFF;
+  background-color: #455A64;
 }
 
 .section two-face {
-    margin-top: -18px;
-    align-self: center;
+  margin-top: -18px;
+  align-self: center;
+}
+
+md-menu-item.menu-item-loading > md-progress-linear {
+  margin: 0;
+}
+
+md-menu-item.menu-item-loading {
+  display: flex;
+  align-items: center;
 }

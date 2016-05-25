@@ -1,10 +1,18 @@
 .brand {
-    margin-right: 0.5em;
+    margin: 0 0.5em;
 }
 
 .main-toolbar {
     z-index: 100;
 }
+
+@media (min-width: 960px) {
+    .main-toolbar .md-toolbar-tools {
+        width: 70%;
+    }
+}
+
+/*
 
 .toolbar-menu.ng-hide {
     display: flex !important;
@@ -35,8 +43,4 @@ md-toolbar.md-accent .md-toolbar-tools {
     }
 }
 
-@media (min-width: 960px) {
-    .main-toolbar .md-toolbar-tools {
-        width: 70%;
-    }
-}
+*/

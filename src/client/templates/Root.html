@@ -1,21 +1,35 @@
 <div layout="column" flex>
   <md-toolbar layout="column" layout-align="start center" class="main-toolbar">
     <div class="md-toolbar-tools">
-      <div class="titlecontainer" layout="row" layout-align="space-between center" flex>
-        <md-icon class="brand">explore</md-icon>
-        <h2 class="md-headline">
-        <span>My Geo Adventures</span>
-      </h2>
-        <span flex></span>
-        <md-button class="md-icon-button" hide-gt-xs ng-click="$ctrl.showMenu = !$ctrl.showMenu">
-          <md-icon>menu</md-icon>
-        </md-button>
-      </div>
+      <md-icon class="brand">explore</md-icon>
+      <h2 class="md-headline">My Geo Adventures</h2>
+      <span flex></span>
 
-      <div class="toolbar-menu" ng-show="$ctrl.showMenu">
+      <div class="toolbar-menu" ng-if="!$ctrl.smallDevice">
         <md-button ng-link="['Home']">Home</md-button>
         <md-button ng-link="['Projects']">Projects</md-button>
       </div>
+
+      <md-menu ng-if="$ctrl.smallDevice">
+        <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="More">
+          <md-icon>more_vert</md-icon>
+        </md-button>
+        <md-menu-content>
+          <md-menu-item>
+            <md-button ng-link="['Home']" ng-click="$mdMenu.hide()">Home</md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button ng-link="['Projects', 'ProjectsOverview']" ng-click="$mdMenu.hide()">Projects</md-button>
+          </md-menu-item>
+          <md-menu-divider></md-menu-divider>
+          <md-menu-item ng-if="$ctrl.loading" class="menu-item-loading">
+            <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+          </md-menu-item>
+          <md-menu-item ng-repeat="project in $ctrl.projects">
+            <md-button ng-link="['Projects', 'ProjectsDetails', {'name': project.name}]" ng-click="$mdMenu.hide()">{{project.name}}</md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
     </div>
   </md-toolbar>
   <md-content flex layout="column">
